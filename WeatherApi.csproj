@@ -8,6 +8,10 @@
 
   <ItemGroup>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+    <PackageReference Include="serilog" Version="2.10.0" />
+    <PackageReference Include="serilog.AspNetCore" Version="5.0.0" />
+    <PackageReference Include="serilog.sinks.console" Version="4.0.1" />
+    <PackageReference Include="serilog.sinks.seq" Version="5.1.1" />
   </ItemGroup>
 
 </Project>
