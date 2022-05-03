@@ -1,18 +1,18 @@
 # CSSE6400 Weather API
 
-1. Download and install the .NET 6.0 SDK
+1. [Download and install the .NET 6.0 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)
 
-2. Download and install Docker
+2. [Download and install Docker](https://www.docker.com/products/docker-desktop/)
 
 3. Run Seq on Docker (run this in any terminal)
 
 `docker run --name seq -d --restart unless-stopped -e ACCEPT_EULA=Y -p 5341:80 datalust/seq:latest`
 
-4. Install the dependencies (in the root folder of this project)
+4. Install the dependencies (in terminal, in the root folder of this project)
 
 `dotnet restore`
 
-5. Run the API (in the root folder of this project)
+5. Run the API (in terminal, in the root folder of this project)
 
 `dotnet run`
 
