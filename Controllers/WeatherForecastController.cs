@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-// add logging dependency CODE HERE
+using Serilog;
 
 namespace WeatherApi.Controllers;
 
@@ -29,7 +29,9 @@ public class WeatherForecastController : ControllerBase
   [HttpPost(Name = "PostWeatherForecast")]
   public List<string> Post([FromBody] string summary)
   {
-    Summaries.Append(summary);
+    Summaries.Add(summary);
+    Log.Information("summary {summary}", summary);
+    Log.Information("Summaries {Summaries}", Summaries);
     return Summaries;
   }
 }

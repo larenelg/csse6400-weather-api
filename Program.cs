@@ -1,4 +1,5 @@
-// Add logging dependency CODE HERE
+// Add logging dependency
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,10 +14,17 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 // Get configuration for logging
-// CODE HERE
+var loggingConfig = configuration.GetSection("Logging");
+var seqUrl = loggingConfig["SeqUrl"];
+var seqApiKey = loggingConfig["SeqApiKey"];
 
 // Set up logging
-// CODE HERE
+builder.Host.UseSerilog((ctx, lc) => lc
+    .MinimumLevel.Information()
+    .Enrich.FromLogContext()
+    .WriteTo.Console()
+    .WriteTo.Seq(seqUrl, apiKey: seqApiKey)
+);
 
 var app = builder.Build();
 
